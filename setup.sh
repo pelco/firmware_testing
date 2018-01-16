@@ -3,6 +3,9 @@
 # Exit on error
 set -e
 
+# Remove tools folder
+rm -rf tools
+
 # Create folder to store/build tools
 mkdir tools
 
@@ -12,6 +15,6 @@ git clone https://github.com/cpputest/cpputest.git tools/cpputest
 cd tools/cpputest
 git checkout tags/v3.8
 ./autogen.sh
-.configure
+./configure
 make
 cd -
