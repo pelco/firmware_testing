@@ -18,3 +18,10 @@ git checkout tags/v3.8
 ./configure
 make
 cd -
+
+# Get LCOV tool
+git clone https://github.com/linux-test-project/lcov.git tools/lcov
+cd lcov
+git checkout tags/v1.13
+
+cd -
