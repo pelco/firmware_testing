@@ -21,7 +21,7 @@ cd -
 
 # Get LCOV tool
 git clone https://github.com/linux-test-project/lcov.git tools/lcov
-cd lcov
+cd tools/lcov
 git checkout tags/v1.13
 
 cd -
