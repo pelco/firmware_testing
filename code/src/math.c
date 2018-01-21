@@ -5,7 +5,7 @@
 
 /**
  * Simple 8 bit calculator
- * Tests need to cover all switch casee and loop over return value
+ * Tests need to cover all switch cases and check for overflow in return value
  */
 uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 {
