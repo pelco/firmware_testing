@@ -22,16 +22,19 @@ TEST(t_code, calc_minus)
   CHECK_EQUAL(0, ret);
 }
 
-/* Covers over loop use case when user
- *  doesnt know what he is doing. */
-TEST(t_code, calc_overloop)
+/** Covers integer overflow case for addition operations */
+TEST(t_code, calc_into_overflow_add)
 {
   uint8_t ret = calculator('+', 200, 56);
   CHECK_EQUAL(0, ret);
 
   ret = calculator('+', 200, 57);
   CHECK_EQUAL(1, ret);
+}
 
-  ret = calculator('-', 0, 1);
+/** Covers integer overflow case for subtraction operations */
+TEST(t_code, calc_into_overflow_minus)
+{
+  uint8_t ret = calculator('-', 0, 1);
   CHECK_EQUAL(255, ret);
 }
