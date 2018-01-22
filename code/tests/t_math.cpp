@@ -2,6 +2,7 @@
 /**
  * This file implements unit tests for all functions in src/math.c
  */
+
 #include "CppUTest/TestHarness.h"
 
 extern "C" {

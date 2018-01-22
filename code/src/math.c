@@ -24,10 +24,3 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 
     return result;
 }
-
-#ifndef TEST_MAIN
-int main(void)
-{
-    return 0;
-}
-#endif
