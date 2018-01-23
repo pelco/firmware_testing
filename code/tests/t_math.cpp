@@ -9,25 +9,25 @@ extern "C" {
 	#include "common.h"
 }
 
-TEST_GROUP(t_code)
+TEST_GROUP(t_math)
 {};
 
 /** Test covers addition case */
-TEST(t_code, calc_plus)
+TEST(t_math, calc_plus)
 {
   uint8_t ret = calculator('+', 2, 8);
   CHECK_EQUAL(10, ret);
 }
 
 /** Test covers subtraction case */
-TEST(t_code, calc_minus)
+TEST(t_math, calc_minus)
 {
   uint8_t ret = calculator('-', 5, 5);
   CHECK_EQUAL(0, ret);
 }
 
 /** Test covers integer overflow case for addition operations */
-TEST(t_code, calc_into_overflow_add)
+TEST(t_math, calc_into_overflow_add)
 {
   uint8_t ret = calculator('+', 200, 56);
   CHECK_EQUAL(0, ret);
@@ -37,7 +37,7 @@ TEST(t_code, calc_into_overflow_add)
 }
 
 /** Test covers integer overflow case for subtraction operations */
-TEST(t_code, calc_into_overflow_minus)
+TEST(t_math, calc_into_overflow_minus)
 {
   uint8_t ret = calculator('-', 0, 1);
   CHECK_EQUAL(255, ret);
