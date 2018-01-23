@@ -9,4 +9,16 @@ extern "C" {
 }
 
 TEST_GROUP(t_main)
-{};
+{
+    /* Stuff to do before each test */
+    void setup()
+    {}
+
+    /* Stuff to do after each test */
+    void teardown()
+    {}
+};
+
+TEST(t_main, dummy)
+{
+}
