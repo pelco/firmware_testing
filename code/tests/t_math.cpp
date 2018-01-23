@@ -1,6 +1,5 @@
-
 /**
- * This file implements unit tests for all functions in src/math.c
+ * This file has all unit tests for all functions in src/math.c
  */
 
 #include "CppUTest/TestHarness.h"

@@ -1,5 +1,5 @@
 /**
- * This file implements unit tests for all functions in src/main.c
+ * This file has all unit tests for all functions in src/main.c
  */
 
 #include "CppUTest/TestHarness.h"
