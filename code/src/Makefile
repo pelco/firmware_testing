@@ -5,7 +5,7 @@ OUT=run_this_firmware
 OBJDIR=build/
 INCLUDE=include/
 
-SRC = math.c main.c
+SRC = math.c main.c hw/i2c.c
 OBJS = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 all: $(OBJDIR) $(OUT)
@@ -18,6 +18,7 @@ $(OBJDIR)%.o: %.c
 
 $(OBJDIR):
 	mkdir -p $@
+	mkdir -p $@/hw
 
 clean:
 	rm -rf $(OBJDIR) $(OUT)
