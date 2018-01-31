@@ -1,8 +1,7 @@
 /**
  * This file implements the i2c hardware functions and are provided by the
- * SoC vendor. This type of function (architecture specific) makes embedded
+ * SoC vendor. This type of functions (architecture specific) make embedded
  * systems debugging difficult and painful.
-
  */
 
 #include <stdio.h>
