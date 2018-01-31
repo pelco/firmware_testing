@@ -1,5 +1,5 @@
 /**
- * This is the main firmware file.
+ * This is the main file with the firmware code.
  */
 
 #include <stdio.h>
