@@ -10,7 +10,7 @@
 #include "common.h"
 
 /**
- * This implements i2c read hw function.
+ * I2c read function.
  */
 uint8_t i2c_read(uint8_t address)
 {
@@ -19,7 +19,7 @@ uint8_t i2c_read(uint8_t address)
 }
 
 /**
- * This implements i2c write hw function.
+ * I2c write function.
  */
 uint8_t i2c_write(uint8_t value, uint8_t address)
 {
