@@ -12,9 +12,9 @@
 /**
  * I2c read function.
  */
-uint8_t i2c_read(uint8_t address)
+uint8_t i2c_read(uint8_t address, uint8_t reg_addr)
 {
-    printf("I2C read at address 0x%x\n", address);
+    printf("I2C read at address 0x%x at reg 0x%x\n", address, reg_addr);
     return 0;
 }
 

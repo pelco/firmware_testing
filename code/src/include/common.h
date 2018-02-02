@@ -11,7 +11,7 @@ const uint8_t I2C_SLAVE_ADDRESS = 0x30;
 const uint8_t I2C_REG1 = 0x0A;
 const uint8_t I2C_REG2 = 0x0B;
 
-uint8_t i2c_read(uint8_t address);
+uint8_t i2c_read(uint8_t address, uint8_t reg_addr);
 uint8_t i2c_write(uint8_t address, uint8_t value);
 
 #endif
