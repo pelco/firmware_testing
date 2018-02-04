@@ -20,10 +20,14 @@ uint32_t main(void)
 
     i2c_write(I2C_SLAVE_ADDRESS, I2C_REG1, I2C_START_DEV); /* Start device */
 
+    /**
+     * 
+     */
     reg = i2c_read(I2C_SLAVE_ADDRESS, I2C_REG2);
-    if (reg > 0x10)
-    {
+    if (reg > 0x10) {
         
+    } else {
+
     }
 
     return 0;
