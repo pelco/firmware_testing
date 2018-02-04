@@ -25,9 +25,9 @@ uint32_t main(void)
      */
     reg = i2c_read(I2C_SLAVE_ADDRESS, I2C_REG2);
     if (reg > 0x10) {
-        
+        i2c_read(I2C_SLAVE_ADDRESS, I2C_REG2);
     } else {
-
+        i2c_write(I2C_SLAVE_ADDRESS, I2C_REG1, I2C_START_DEV);
     }
 
     return 0;
