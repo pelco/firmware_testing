@@ -32,6 +32,9 @@ INCLUDE_DIRS = 					\
 TEST_SRC_DIRS = \
 	$(TEST_DIR)	\
 
+MOCKS_SRC_DIRS = 		\
+	$(TEST_DIR)/mocks	\
+
 CPPUTEST_OBJS_DIR=$(TEST_DIR)/build/
 CPPUTEST_LIB_DIR=$(TEST_DIR)/lib
 
