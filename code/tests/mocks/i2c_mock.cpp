@@ -14,7 +14,8 @@ extern "C" {
  */
 uint8_t i2c_read(uint8_t address, uint8_t reg_addr)
 {
-    return mock().actualCall("i2c_read")
+    return (uint8_t)
+            mock().actualCall("i2c_read")
             .withParameter("address", address)
             .withParameter("reg_addr", reg_addr)
             .returnUnsignedIntValueOrDefault(0);
@@ -25,7 +26,8 @@ uint8_t i2c_read(uint8_t address, uint8_t reg_addr)
  */
 uint8_t i2c_write(uint8_t address, uint8_t reg_addr, uint8_t value)
 {
-    return mock().actualCall("i2c_write")
+    return (uint8_t)
+            mock().actualCall("i2c_write")
             .withParameter("address", address)
             .withParameter("reg_addr", reg_addr)
             .withParameter("value", value)

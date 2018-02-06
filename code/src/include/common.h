@@ -21,7 +21,7 @@ uint8_t i2c_write(uint8_t address, uint8_t reg_addr, uint8_t value);
  * 
  */
 void init_device(void);
-int test_main(void);
+uint32_t test_main(void);
 #endif
 
 #endif

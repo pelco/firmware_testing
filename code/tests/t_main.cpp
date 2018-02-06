@@ -25,9 +25,12 @@ TEST_GROUP(t_main)
 
 };
 
-TEST(t_main, i2c_start)
+/* Test checks correct call of init_device */
+TEST(t_main, init_device_call)
 {
-    mock().expectOneCall("i2c_read").withParameter("address", I2C_SLAVE_ADDRESS).andReturnValue(6);
-
+    mock().expectOneCall("i2c_write").withParameter("address", I2C_SLAVE_ADDRESS)
+                                     .withParameter("reg_addr", I2C_REG1)
+                                     .withParameter("value", I2C_START_DEV)
+                                     .andReturnValue(0);
     init_device();
 }
