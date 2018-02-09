@@ -20,7 +20,7 @@ TEST_GROUP(t_main)
     {
         mock().checkExpectations(); /* Check mock expectations */
         mock().clear();             /* Will report memory leak if metadata 
-                                        is not deleted */
+                                     * is not deleted */
     }
 
 };
@@ -33,4 +33,32 @@ TEST(t_main, init_device_call)
                                      .withParameter("value", I2C_START_DEV)
                                      .andReturnValue(0);
     init_device();
+}
+
+/**
+ * Test reconfiguration case, when device does not respond to
+ * first i2c_read call
+ */
+TEST(t_main, check_reconfigure_behavior)
+{
+    /**
+     * Expect 2 i2c_write calls with the same parameters:
+     *  - One done by the init_device() function;
+     *  - Other done in the else condition also by init_device();
+     */
+    mock().expectNCalls(2, "i2c_write")
+        .withParameter("address", I2C_SLAVE_ADDRESS)
+        .withParameter("reg_addr", I2C_REG1)
+        .withParameter("value", I2C_START_DEV)
+        .andReturnValue(0);
+
+    /* Expect one i2c_read call and return 0 */
+    mock().expectOneCall("i2c_read")
+        .withParameter("address", I2C_SLAVE_ADDRESS)
+        .withParameter("reg_addr", I2C_REG2)
+        .andReturnValue(0);
+
+    /* Run main firmware function */
+    uint32_t ret = test_main();
+    CHECK_EQUAL(0, ret);
 }

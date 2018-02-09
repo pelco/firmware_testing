@@ -12,6 +12,7 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2);
 #define I2C_REG2            0x0B    /* Register 2 offset */
 #define I2C_REG3            0x0C    /* Register 3 offset */
 #define I2C_START_DEV       0x01    /* Slave init value */
+#define DEVICE_READY        0x10    /* Device ready */
 
 uint8_t i2c_read(uint8_t address, uint8_t reg_addr);
 uint8_t i2c_write(uint8_t address, uint8_t reg_addr, uint8_t value);
