@@ -43,7 +43,7 @@ TEST(t_main, check_reconfigure_behavior)
 {
     /**
      * Expect 2 i2c_write calls with the same parameters:
-     *  - One done by the init_device() function;
+     *  - One done at the beggining of main function by the init_device();
      *  - Other done in the else condition also by init_device();
      */
     mock().expectNCalls(2, "i2c_write")
@@ -56,6 +56,31 @@ TEST(t_main, check_reconfigure_behavior)
     mock().expectOneCall("i2c_read")
         .withParameter("address", I2C_SLAVE_ADDRESS)
         .withParameter("reg_addr", I2C_REG2)
+        .andReturnValue(0); /* Will force firmware to enter else condition */
+
+    /* Run main firmware function */
+    uint32_t ret = test_main();
+    CHECK_EQUAL(0, ret);
+}
+
+TEST(t_main, check_device_ready)
+{
+
+    /* Expect one i2w_write call and ignore its parameters */
+    mock().expectOneCall("i2c_write")
+        .ignoreOtherParameters()
+        .andReturnValue(0);
+
+    /* Expect i2c_read call and return DEVICE_READYE */
+    mock().expectOneCall("i2c_read")
+        .withParameter("address", I2C_SLAVE_ADDRESS)
+        .withParameter("reg_addr", I2C_REG2)
+        .andReturnValue(DEVICE_READY);
+
+    /* Expect second i2c_read call with reg_addr of I2C_REG3 */
+    mock().expectOneCall("i2c_read")
+        .withParameter("address", I2C_SLAVE_ADDRESS)
+        .withParameter("reg_addr", I2C_REG3)
         .andReturnValue(0);
 
     /* Run main firmware function */
