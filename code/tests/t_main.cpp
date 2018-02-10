@@ -39,7 +39,7 @@ TEST(t_main, init_device_call)
  * Test reconfiguration case, when device does not respond to
  * first i2c_read call
  */
-TEST(t_main, check_reconfigure_behavior)
+TEST(t_main, check_reconfigure_behaviour)
 {
     /**
      * Expect 2 i2c_write calls with the same parameters:
