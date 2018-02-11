@@ -26,7 +26,7 @@ uint32_t main(void)
 
     uint8_t reg = 0;
 
-    init_device();
+    init_device(); /* Configure device */
 
     /**
      * Use case: Firmware tries to read I2C_REG2, if successful it
@@ -41,7 +41,7 @@ uint32_t main(void)
     if (reg == DEVICE_READY) {
         i2c_read(I2C_SLAVE_ADDRESS, I2C_REG3);
     } else {
-        init_device();
+        init_device(); /* Reconfigure device if it's not ready */
     }
 
     return 0;
