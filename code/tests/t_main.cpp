@@ -37,7 +37,7 @@ TEST(t_main, init_device_call)
 
 /**
  * Test reconfiguration case, when device does not respond to
- * first i2c_read call
+ * first i2c_read call.
  */
 TEST(t_main, check_reconfigure_behaviour)
 {
@@ -63,9 +63,11 @@ TEST(t_main, check_reconfigure_behaviour)
     CHECK_EQUAL(0, ret);
 }
 
+/**
+ * Test device behaviour when is ready to be read by the firmware.
+ */
 TEST(t_main, check_device_ready)
 {
-
     /* Expect one i2w_write call and ignore its parameters */
     mock().expectOneCall("i2c_write")
         .ignoreOtherParameters()
