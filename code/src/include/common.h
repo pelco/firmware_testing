@@ -20,7 +20,8 @@ uint8_t i2c_write(uint8_t address, uint8_t reg_addr, uint8_t value);
 
 #ifdef TEST_MAIN
 /**
- * 
+ * These functions are only used in the CppUTest framework so that it's
+ * possible to test them.
  */
 void init_device(void);
 uint32_t test_main(void);
