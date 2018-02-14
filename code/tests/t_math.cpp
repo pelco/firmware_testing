@@ -11,21 +11,21 @@ extern "C" {
 TEST_GROUP(t_math)
 {};
 
-/** Test covers addition case */
+/* Test covers addition case */
 TEST(t_math, calc_plus)
 {
   uint8_t ret = calculator('+', 2, 8);
   CHECK_EQUAL(10, ret);
 }
 
-/** Test covers subtraction case */
+/* Test covers subtraction case */
 TEST(t_math, calc_minus)
 {
   uint8_t ret = calculator('-', 5, 5);
   CHECK_EQUAL(0, ret);
 }
 
-/** Test covers integer overflow case for addition operations */
+/* Test covers integer overflow case for addition operations */
 TEST(t_math, calc_into_overflow_add)
 {
   uint8_t ret = calculator('+', 200, 56);
@@ -35,7 +35,7 @@ TEST(t_math, calc_into_overflow_add)
   CHECK_EQUAL(1, ret);
 }
 
-/** Test covers integer overflow case for subtraction operations */
+/* Test covers integer overflow case for subtraction operations */
 TEST(t_math, calc_into_overflow_minus)
 {
   uint8_t ret = calculator('-', 0, 1);
