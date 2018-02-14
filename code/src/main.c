@@ -33,9 +33,9 @@ uint32_t main(void)
      * will read I2C_REG3, otherwise tries to configure device again.
      *
      * This type of use cases are painful to simulate and requires developers
-     * to create complex stubs that satisfy every use case.
+     * to create complex stubs that satisfy every case.
      *
-     * Mocks allows developers to easily simulate/control this use cases.
+     * Mocks allows developers to easily simulate/control these cases.
      */
     reg = i2c_read(I2C_SLAVE_ADDRESS, I2C_REG2);
     if (reg == DEVICE_READY) {
