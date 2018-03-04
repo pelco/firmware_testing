@@ -1,12 +1,22 @@
 
+
+all: src
+
 .PHONY: src
+# Build firmware
 src:
 	make -C src/
 
 .PHONY: test
+# Run test cases
 test:
 	make -f MakefileCppUTest.mk
 
+# Run test with Memory leaks detection enabled
+test_ml:
+	make -f MakefileCppUTest.mk CPPUTEST_USE_MEM_LEAK_DETECTION=Y
+
+# Run coverage report
 .PHONY: coverage
 coverage: clean
 	mkdir coverage
