@@ -10,3 +10,9 @@ extern "C" {
 
 TEST_GROUP(t_other)
 {};
+
+TEST(t_other, mem_leak_example)
+{
+  uint8_t ret = mem_leak_function();
+  CHECK_EQUAL(1, ret);
+}
