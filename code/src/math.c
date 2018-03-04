@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+/**
+ * Simple math API function.
+ */
 
 #include "common.h"
 
