@@ -17,7 +17,9 @@ uint8_t mem_leak_function(void)
     (void)(ptr);
 
     /**
-     * Run: make test_ml
+     * Change memory leak definition CPPUTEST_USE_MEM_LEAK_DETECTION=N to
+     * CPPUTEST_USE_MEM_LEAK_DETECTION=Y in the MakefileCppUTest.mk file.
+     * Then Run: make test
      */
     // free(ptr);
     return 1;

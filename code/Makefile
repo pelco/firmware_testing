@@ -12,10 +12,6 @@ src:
 test:
 	make -f MakefileCppUTest.mk
 
-# Run test with Memory leaks detection enabled
-test_ml:
-	make -f MakefileCppUTest.mk CPPUTEST_USE_MEM_LEAK_DETECTION=Y
-
 # Run coverage report
 .PHONY: coverage
 coverage: clean
