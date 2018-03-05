@@ -9,7 +9,7 @@ src:
 
 .PHONY: test
 # Run test cases
-test:
+test: clean
 	make -f MakefileCppUTest.mk
 
 # Run coverage report
