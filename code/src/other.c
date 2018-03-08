@@ -24,3 +24,22 @@ uint8_t mem_leak_function(void)
     // free(ptr);
     return 1;
 }
+
+/**
+ * This example shows how to launch interrupts service routines
+ * In the test environment
+ */
+volatile uint8_t brick_code = 1;
+
+void ISR(void)
+{
+    brick_code = 0;
+}
+
+void wait_for_ISR_func(void)
+{
+    while(brick_code){
+        //printf("Stuck forever here\n");
+    };
+    printf("Out of the loop\n");
+}
