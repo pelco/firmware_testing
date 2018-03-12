@@ -22,7 +22,12 @@ TEST_GROUP(t_other)
     void teardown(){}
 };
 
-/* */
+/**
+ * Test function that is leaking memory.
+ * Change memory leak definition CPPUTEST_USE_MEM_LEAK_DETECTION=N to
+ * CPPUTEST_USE_MEM_LEAK_DETECTION=Y in the MakefileCppUTest.mk file.
+ * Then Run: make test
+ */
 TEST(t_other, mem_leak_example)
 {
   uint8_t ret = mem_leak_function();
