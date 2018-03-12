@@ -3,9 +3,12 @@
  */
 
 #include "CppUTest/TestHarness.h"
+#include <thread>
 
 extern "C" {
+    #include <unistd.h>
 	#include "common.h"
+    //extern int usleep(unsigned int);
 }
 
 extern uint8_t brick_code;
@@ -41,4 +44,27 @@ TEST(t_other, _ISR_)
   CHECK_EQUAL(1, brick_code);
   ISR();
   CHECK_EQUAL(0, brick_code);
+}
+
+/**
+ * Thread that calls ISR function after some microseconds.
+ */
+void call_ISR(uint32_t usec)
+{
+    usleep(usec);
+    ISR();
+}
+/**
+ * This test example shows how to test some specific function
+ * that depends of a ISR to happen in thee firmware.
+ */
+TEST(t_other, wait_for_ISR_func)
+{
+  /* Call ISR after 10 usec */
+  std::thread first (call_ISR, 10);
+
+  wait_for_ISR_func();
+  CHECK_EQUAL(0, brick_code);
+
+  first.join();
 }

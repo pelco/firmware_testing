@@ -27,7 +27,7 @@ uint8_t mem_leak_function(void)
 
 /**
  * This example shows how to launch interrupts service routines
- * In the test environment
+ * to mimic firmware behaviour
  */
 volatile uint8_t brick_code = 1;
 
