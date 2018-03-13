@@ -55,8 +55,8 @@ void call_ISR(uint32_t usec)
     ISR();
 }
 /**
- * This test example shows how to test some specific function
- * that depends of a ISR to happen in thee firmware.
+ * This test example shows how to test some specific function that
+ * depends on a ISR to happen in order for the firmware continue execution.
  */
 TEST(t_other, wait_for_ISR_func)
 {
