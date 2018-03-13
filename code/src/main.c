@@ -22,7 +22,7 @@ uint32_t test_main(void)
 uint32_t main(void)
 #endif
 {
-    printf(" Hello World from Firmware");
+    printf(" Hello World from Firmware\n");
 
     uint8_t reg = 0;
 
