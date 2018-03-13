@@ -26,7 +26,7 @@ TEST(t_math, calc_minus)
 }
 
 /* Test covers integer overflow case for addition operations */
-TEST(t_math, calc_into_overflow_add)
+TEST(t_math, calc_ret_overflow_add)
 {
   uint8_t ret = calculator('+', 200, 56);
   CHECK_EQUAL(0, ret);
@@ -36,7 +36,7 @@ TEST(t_math, calc_into_overflow_add)
 }
 
 /* Test covers integer overflow case for subtraction operations */
-TEST(t_math, calc_into_overflow_minus)
+TEST(t_math, calc_ret_overflow_minus)
 {
   uint8_t ret = calculator('-', 0, 1);
   CHECK_EQUAL(255, ret);

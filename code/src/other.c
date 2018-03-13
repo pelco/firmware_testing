@@ -39,7 +39,7 @@ void ISR(void)
 void wait_for_ISR_func(void)
 {
     while(brick_code){
-        //printf("Stuck forever here\n");
+        //printf(" Stuck forever here\n");
     };
-    printf("Out of the loop\n");
+    printf(" -> Out of the loop");
 }

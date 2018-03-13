@@ -22,7 +22,7 @@ uint32_t test_main(void)
 uint32_t main(void)
 #endif
 {
-    printf("Hello World from Firmware\n");
+    printf(" Hello World from Firmware");
 
     uint8_t reg = 0;
 
@@ -36,6 +36,7 @@ uint32_t main(void)
      * to create complex stubs that satisfy every case.
      *
      * Mocks allows developers to easily simulate/control these cases.
+     * Check tests/t_main.cpp.
      */
     reg = i2c_read(I2C_SLAVE_ADDRESS, I2C_REG2);
     if (reg == DEVICE_READY) {
