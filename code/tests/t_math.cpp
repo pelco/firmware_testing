@@ -25,6 +25,13 @@ TEST(t_math, calc_minus)
   CHECK_EQUAL(0, ret);
 }
 
+/* Test covers default case */
+TEST(t_math, calc_default)
+{
+  uint8_t ret = calculator('*', 1, 5);
+  CHECK_EQUAL(0, ret);
+}
+
 /* Test covers integer overflow case for addition operations */
 TEST(t_math, calc_ret_overflow_add)
 {
