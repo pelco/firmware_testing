@@ -25,10 +25,15 @@ TEST(t_math, calc_minus)
   CHECK_EQUAL(0, ret);
 }
 
-/* Test covers default case */
-TEST(t_math, calc_default)
+/* Tests covers default case */
+TEST(t_math, calc_default_mul)
 {
   uint8_t ret = calculator('*', 1, 5);
+  CHECK_EQUAL(0, ret);
+}
+TEST(t_math, calc_default_div)
+{
+  uint8_t ret = calculator('/', 1, 5);
   CHECK_EQUAL(0, ret);
 }
 
