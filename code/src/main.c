@@ -1,5 +1,6 @@
 /**
- * This is the main file with firmware code.
+ * This is the main file with firmware code. This code has hardware dependencies
+ * (i2c) that are usually painful get it running in a x86 host machine.
  */
 
 #include <stdio.h>
