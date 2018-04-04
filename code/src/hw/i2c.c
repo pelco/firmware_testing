@@ -1,9 +1,9 @@
 /**
- * This file implements the i2c hardware functions and are provided by the
+ * This file implements i2c hardware functions and usually provided by the
  * SoC vendor. This type of functions (architecture specific) make embedded
  * systems debugging difficult and painful.
- * These functions are mocked in tests/mocks/i2c_mock.cpp by the CppUTest
- * framework and therefore never called.
+ * To test the firmware, these functions are mocked in tests/mocks/i2c_mock.cpp
+ * by the CppUTest framework and therefore never called.
  */
 
 #include <stdio.h>

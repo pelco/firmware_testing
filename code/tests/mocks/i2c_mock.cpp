@@ -1,7 +1,9 @@
 /**
- * This file contains mock functions that allows us to use in our test framework
- * and define which execution path we want to take.
+ * This file contains mock functions of src/hw/i2c.c file. Mocking allows us to
+ * use these functions in the test framework to test firmware with hardware
+ * dependencies and define which execution path we want to take.
  */
+
 #include "CppUTest/TestHarness.h"
 #include "CppUTestExt/MockSupport.h"
 
