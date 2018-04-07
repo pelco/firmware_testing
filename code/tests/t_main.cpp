@@ -19,8 +19,7 @@ TEST_GROUP(t_main)
     void teardown()
     {
         mock().checkExpectations(); /* Check mock expectations */
-        mock().clear();             /* Will report memory leak if metadata 
-                                     * is not deleted */
+        mock().clear();             /* Delete metadata */
     }
 
 };

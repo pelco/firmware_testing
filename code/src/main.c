@@ -7,7 +7,7 @@
 #include "common.h"
 
 /**
- * Device configuration
+ * I2C device configuration
  */
 void init_device(void)
 {
@@ -27,7 +27,7 @@ uint32_t main(void)
 
     uint8_t reg = 0;
 
-    init_device(); /* Configure device */
+    init_device(); /* Configure i2c device */
 
     /**
      * Use case: Firmware tries to read I2C_REG2, if successful it
