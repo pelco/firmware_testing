@@ -41,9 +41,9 @@ TEST(t_main, init_device_call)
 TEST(t_main, check_reconfigure_behaviour)
 {
     /**
-     * Expect 2 i2c_write calls with the same parameters:
-     *  - One done at the beggining of main function by the init_device();
-     *  - Other done in the else condition also by init_device();
+     * Expect two i2c_write calls with the same parameters:
+     *  - One is done at the beggining of main function by the init_device();
+     *  - Another is done in the else condition also by init_device();
      */
     mock().expectNCalls(2, "i2c_write")
         .withParameter("address", I2C_SLAVE_ADDRESS)
@@ -63,11 +63,11 @@ TEST(t_main, check_reconfigure_behaviour)
 }
 
 /**
- * Test device behaviour when is ready to be read by the firmware.
+ * Test device behaviour when it's ready to be read by the firmware.
  */
 TEST(t_main, check_device_ready)
 {
-    /* Expect one i2w_write call and ignore its parameters */
+    /* Expect one i2w_write call. Ignore parameters */
     mock().expectOneCall("i2c_write")
         .ignoreOtherParameters()
         .andReturnValue(0);
