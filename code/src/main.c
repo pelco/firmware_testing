@@ -11,7 +11,8 @@
  */
 void init_device(void)
 {
-    i2c_write(I2C_SLAVE_ADDRESS, I2C_REG1, I2C_START_DEV); /* Start device */
+    /* Start device */
+    i2c_write(I2C_SLAVE_ADDRESS, I2C_REG1, I2C_START_DEV);
 }
 
 /** 
