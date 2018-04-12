@@ -8,7 +8,6 @@
 extern "C" {
     #include <unistd.h>
 	#include "common.h"
-    //extern int usleep(unsigned int);
 }
 
 extern uint8_t brick_code;
@@ -55,8 +54,8 @@ void call_ISR(uint32_t usec)
     ISR();
 }
 /**
- * This test example shows how to test some specific function that
- * depends on a ISR to happen in order for the firmware continue execution.
+ * This test example shows how to test specific function that depends
+ * on a ISR to happen in order to continue it's execution.
  */
 TEST(t_other, wait_for_ISR_func)
 {
