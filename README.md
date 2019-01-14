@@ -1,6 +1,6 @@
 # Embedded Firmware Testing
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/afe25c5f6f1a4dab8bebad314cf3ce6a)](https://app.codacy.com/app/pelco/firmware_testing?utm_source=github.com&utm_medium=referral&utm_content=pelco/firmware_testing&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/afe25c5f6f1a4dab8bebad314cf3ce6a)](https://app.codacy.com/project/pelco/firmware_testing/dashboard)
 
 # Description
 
