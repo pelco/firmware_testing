@@ -19,13 +19,15 @@ branches:
 
 before_install:
   - sudo apt-get install --assume-yes --quiet git gcc g++ libtool autoconf
-  - sudo pip install --user cpp-coveralls
 script:
   - ./setup.sh &> /dev/null
   - cd code
   - make $BUILD
-  - if [ "$BUILD" == "coverage" ]; then coveralls --exclude tests --gcov-options '\-lbcp'; fi
 
 env:
   global:
     secure: "T9kDb0E6atNrryGx+4J8NJXfYa7yfqlJltLf+ys8ptIvTUg5p/1ivMxpXmKRRVv+Pkg63ukRX1bk8liCbOQquzHpWR2h37IRkrA2miKAfohvFUPYhgO0aYHPyHJH1cC53a3YBziAf+yMrA8nSWyGbh6Nn6DyHkQGR2mNIeECI0i+J3WsiBy50YnUWRIJCuFsk2iIJX3+oSMgcZ90tfKLY5CO3h1rTuR5XeZrMFdMJbLIAfGpMOWPK5SI6YLGVOmnPFgwG8JnTvUb2yfxHIW3rA0sWSYunmlIfrQaMEaL7sImXu1o1BFWcea3rIrwXhIPh81om5zpYFbOUIfAV9p6xtb6qlxtGPKPJ5R1PXmnIVe6zPmrVT0kJZ3bbQ6GelG7J2/iUnbaqdDKQuTkC+z8zbJoyHgejeS2h2yBql6ytRLcT+M0kaFzGf8fzj5/zE42zpDozxnXRAcvGlXEKpzDLko2Nt967SVaMqSLKpffGmhEHvkt1fe0q38nrtb2GNI6GkpDmg75DndDaYPHJ5x+lQE1876FnPvkksOW9GJUOc4qcffep2g6q0oinyCdlIz6bJqk8vJePutXyM5L5RrXZmRbjq90OvrIVBTHEWb7uyPQFNTeV3sXhrz3N4ydQThl4eOclrw1+TSODkNEpJJ2Qa1W6iaIgszUhnZ1/6HH/p8="
+
+after_success:
+  - sudo pip install --user cpp-coveralls
+  - if [ "$BUILD" == "coverage" ]; then coveralls --exclude tests --gcov-options '\-lbcp'; fi
