@@ -3,6 +3,13 @@ language: c
 matrix:
  include:
     - os: linux
+      env: BUILD=src
+      compiler: gcc
+    - os: linux
+      env: BUILD=test
+      compiler: gcc
+    - os: linux
+      env: BUILD=coverage
       compiler: gcc
 
 before_install:
@@ -10,4 +17,4 @@ before_install:
 script:
   - ./setup.sh
   - cd code
-  - make
+  - make $BUILD
