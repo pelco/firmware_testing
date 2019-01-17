@@ -18,11 +18,13 @@ branches:
     - master
 
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install --assume-yes --quiet git gcc g++ libtool autoconf; fi
+  - sudo apt-get install --assume-yes --quiet git gcc g++ libtool autoconf
+  - sudo pip install --user cpp-coveralls
 script:
   - ./setup.sh &> /dev/null
   - cd code
   - make $BUILD
+  - if [ "$BUILD" == "coverage" ]; then coveralls --exclude tests --gcov-options '\-lbcp'; fi
 
 env:
   global:
