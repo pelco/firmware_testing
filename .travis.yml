@@ -15,7 +15,7 @@ matrix:
 
 branches:
   only:
-- master
+    - master
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install --assume-yes --quiet git gcc g++ libtool autoconf; fi
