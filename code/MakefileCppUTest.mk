@@ -14,7 +14,7 @@ CPPUTEST_USE_MEM_LEAK_DETECTION=N
 # Flags for the C++ AND C preprocessor
 CPPUTEST_CPPFLAGS= -DTEST_MAIN
 # Flags for the C++ compiler
-CPPUTEST_CXXFLAGS= -std=c++11
+CPPUTEST_CXXFLAGS= -std=c++14
 # Linker flags
 CPPUTEST_LDFLAGS= -lpthread
 

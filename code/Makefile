@@ -1,12 +1,18 @@
+# Makefile
+
+all: src
 
 .PHONY: src
+# Build firmware
 src:
 	make -C src/
 
 .PHONY: test
-test:
+# Run test cases
+test: clean
 	make -f MakefileCppUTest.mk
 
+# Run coverage report
 .PHONY: coverage
 coverage: clean
 	mkdir coverage
