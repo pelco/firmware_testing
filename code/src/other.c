@@ -27,8 +27,8 @@ uint8_t mem_leak_function(void)
 
 /**
  * This example shows a funcion (wait_for_ISR_func) that depends on a
- * ISR(interrupt service routines) to happen in order for the firmware
- * funcion continue execution.
+ * ISR() (interrupt service routines) to happen in order for the firmware
+ * funcion continue it's execution.
  * Check tests/t_other.c.
  */
 volatile uint8_t brick_code = 1;

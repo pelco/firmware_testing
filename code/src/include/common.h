@@ -24,8 +24,8 @@ void wait_for_ISR_func(void);
 
 #ifdef TEST_MAIN
 /**
- * These functions are only used in the CppUTest framework so that it's
- * possible to test them.
+ * These functions are only used in the CppUTest framework so that we
+ * can to test them.
  */
 void init_device(void);
 uint32_t test_main(void);

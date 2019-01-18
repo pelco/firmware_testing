@@ -1,16 +1,18 @@
 /**
- * This is the main file with firmware code.
+ * This is the main file with firmware code. This code has hardware dependencies
+ * (i2c) that are usually painful get it running in a x86 host machine.
  */
 
 #include <stdio.h>
 #include "common.h"
 
 /**
- * Device configuration
+ * I2C device configuration
  */
 void init_device(void)
 {
-    i2c_write(I2C_SLAVE_ADDRESS, I2C_REG1, I2C_START_DEV); /* Start device */
+    /* Start device */
+    i2c_write(I2C_SLAVE_ADDRESS, I2C_REG1, I2C_START_DEV);
 }
 
 /** 
@@ -26,7 +28,7 @@ uint32_t main(void)
 
     uint8_t reg = 0;
 
-    init_device(); /* Configure device */
+    init_device(); /* Configure i2c device */
 
     /**
      * Use case: Firmware tries to read I2C_REG2, if successful it
