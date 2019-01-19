@@ -6,6 +6,20 @@
 
 ## Description
 
+The goal of this project is to show how to test an embedded firmware using [CppUTest](https://github.com/cpputest/cpputest) framework.
+
+![embdev](/home/pedro/workspace/github/firmware_testing/img/EmbDevice.png)
+
+
+
+An embedded system usually communicates with a lot of inner devices, and now with the IoT trend, they may also communicate with other embedded devices or servers. Thus, testing software for embedded devices can sometimes be very painful (if you are an embedded engineer you understand!).
+
+The goal here, is to show how to remove these hardware/devices dependencies and test/run the code on a host machine (PC) using [CppUTest](https://github.com/cpputest/cpputest) framework. 
+
+## Get Started
+
+The is an embedded firmware project that shows how to use CppUTest to test the code.
+
 This project shows an example of using CppUTest framework to test an embedded firmware.
 
 Features covered:
@@ -13,3 +27,5 @@ Features covered:
 1.  Simple Unit Test
 2.  Testing ISRs
 3.  Testing Hardware Dependencies
+
+`make`
