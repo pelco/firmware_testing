@@ -16,16 +16,47 @@ The goal here, is to show how to remove these hardware/devices dependencies and 
 
 ## Get Started
 
+1.  You will need to install the following tools:
+    ```bash
+    sudo apt install git gcc g++ libtool autoconf
+    ```
+
+2.  Download this repository
+    ```bash
+    git clone https://github.com/pelco/firmware_testing.git
+    ```
+
+3.  Run setup.sh script (will create tools folder, get [CppUTest](https://github.com/cpputest/cpputest) and [LCOV](https://github.com/linux-test-project/lcov))
+    ```bash
+    cd firmware_testing
+    ./setup.sh
+    ```
+4.  Go inside the code folder
+    ```bash
+    cd code
+    ```
+
+## Build Targets
+
+1.  Build "firmware" (Source)
+    ```bash
+    make
+    ```
+
+2.  Run test cases
+    ```bash
+    make test
+    ```
+
+3.  Run coverage report
+    ```bash
+    make coverage
+    ```
+
 *Working on it....*
-
-The is an embedded firmware project that shows how to use CppUTest to test the code.
-
-This project shows an example of using CppUTest framework to test an embedded firmware.
 
 Features covered:
 
 1.  Simple Unit Test
 2.  Testing ISRs
 3.  Testing Hardware Dependencies
-
-`make`
