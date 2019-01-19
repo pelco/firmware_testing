@@ -16,6 +16,8 @@ The goal here, is to show how to remove these hardware/devices dependencies and 
 
 ## Get Started
 
+*Working on it....*
+
 The is an embedded firmware project that shows how to use CppUTest to test the code.
 
 This project shows an example of using CppUTest framework to test an embedded firmware.
