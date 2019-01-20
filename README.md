@@ -12,7 +12,6 @@ The goal of this project is to show how to test an embedded firmware using [CppU
 
 Usually, an embedded system communicates with many inner devices, such as accelerometers, GPS modules, CAN controllers and/or M2M devices. But now, with the IoT trend, they may also communicate with remote servers and/or with nearby devices, like smartphones, TVs, smartwatches or even your fridge and microwave! Thus, testing software for embedded systems can sometimes be very painful.
 
-Imaging the you want to test a new piece of code that communicates with a specific device but you don't have the means to get that device!
 The goal is to show how to remove these hardware/devices dependencies and test/run code on a host machine using [CppUTest](https://github.com/cpputest/cpputest) framework.
 
 ## Get Started
