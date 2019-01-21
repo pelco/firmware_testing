@@ -6,7 +6,7 @@
 
 ## Description
 
-The goal of this project is to show how to test an embedded firmware using [CppUTest](https://github.com/cpputest/cpputest) framework.
+Here is a project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test an embedded firmware.
 
 ![embeddedDevice](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
 
@@ -53,7 +53,6 @@ $ tree -d
     $ make
     ```
     This command will build the main firmware located at **src/main.c** and create **src/run_this_firmware** binary.
-    Note that currently this piece of code doesn't actually has any hardware dependency so it should build and run on any machine.
      ```bash
     $ ./src/run_this_firmware
     Hello World from Firmware
@@ -61,24 +60,23 @@ $ tree -d
     I2C read from slave 0x30 at reg 0xb
     I2C write value 0x1 to reg 0xa at slave 0x30
     ```
-    The I2C hardware functions are located at **src/hw/i2c.c**. You will notice in the next commands that the I2C prints (hardware operations) will not be printed.
-    If you add hardware specific code to this file, this build will fail but the test and coverage will continue to work.
 
 2.  Run test cases
+    The next command will build [CppUTest](https://github.com/cpputest/cpputest) and run all test cases in **tests/t_*.cpp** files.
     ```bash
     $ make test
     ...
-    TEST(t_main, check_device_ready) Hello World from Firmware - 0 ms
-    TEST(t_main, check_reconfigure_behaviour) Hello World from Firmware - 0 ms
-    ...
     OK (12 tests, 12 ran, 20 checks, 0 ignored, 0 filtered out, 1 ms)
     ```
-    Note that the two test above did not printed any I2C message.
 
 3.  Run coverage report
+    This command will run all test cases and generate a firmware coverage report. 
     ```bash
     make coverage
     ```
+    A **coverage** folder should have been created an you can access the result by open **coverageTest.html/index.html** with your browser:
+
+    ![LCOVReport](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
 
 *Working on it....*
 
