@@ -43,7 +43,7 @@ $ tree -d
 │   ├── hw          -> Hardware/Target specific code
 │   └── include     -> Header files
 └── tests           -> Test cases
-    └── mocks       -> Hardware mocks
+    └── mocks       -> Mocks
 ```
 
 ## Build Targets
