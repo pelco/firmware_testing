@@ -35,6 +35,16 @@ The goal is to show how to remove these hardware/devices dependencies and test/r
     ```bash
     $ cd code
     ```
+## Folder Structure
+```bash
+$ tree -d
+.
+├── src             -> Firmware source code
+│   ├── hw          -> Hardware/Target specific code
+│   └── include     -> Header files
+└── tests           -> Test cases
+    └── mocks       -> Hardware mocks
+```
 
 ## Build Targets
 
