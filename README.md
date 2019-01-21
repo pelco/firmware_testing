@@ -18,26 +18,27 @@ The goal is to show how to remove these hardware/devices dependencies and test/r
 
 1.  You will need to install the following tools:
     ```bash
-    $ sudo apt install git gcc g++ libtool autoconf
+    sudo apt install git gcc g++ libtool autoconf
     ```
 
 2.  Download this repository
     ```bash
-    $ git clone https://github.com/pelco/firmware_testing.git
+    git clone https://github.com/pelco/firmware_testing.git
     ```
 
 3.  Run setup.sh script (will create tools folder, get [CppUTest](https://github.com/cpputest/cpputest) and [LCOV](https://github.com/linux-test-project/lcov))
     ```bash
-    $ cd firmware_testing
-    $ ./setup.sh
+    cd firmware_testing
+    ./setup.sh
     ```
+
 4.  Go inside the code folder to get started
     ```bash
-    $ cd code
+    cd code
     ```
 ## Folder Structure
 ```bash
-$ tree -d
+tree -d
 .
 ├── src             -> Firmware source code
 │   ├── hw          -> Hardware/Target specific code
@@ -50,11 +51,11 @@ $ tree -d
 
 1.  Build "firmware" (Source)
     ```bash
-    $ make
+    make
     ```
     This command will build the main firmware located at **src/main.c** and create **src/run_this_firmware** binary.
      ```bash
-    $ ./src/run_this_firmware
+    ./src/run_this_firmware
     Hello World from Firmware
     I2C write value 0x1 to reg 0xa at slave 0x30
     I2C read from slave 0x30 at reg 0xb
@@ -64,7 +65,7 @@ $ tree -d
 2.  Run test cases
     The next command will build [CppUTest](https://github.com/cpputest/cpputest) and run all test cases in **tests/t_*.cpp** files.
     ```bash
-    $ make test
+    make test
     ...
     OK (12 tests, 12 ran, 20 checks, 0 ignored, 0 filtered out, 1 ms)
     ```
@@ -74,11 +75,12 @@ $ tree -d
     ```bash
     make coverage
     ```
+
     A **coverage** folder should have been created an you can access the result by open **coverageTest.html/index.html** with your browser:
 
     ![](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
 
-*Working on it....*
+Working on it....
 
 Features covered:
 
