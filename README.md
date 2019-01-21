@@ -10,7 +10,7 @@ The goal of this project is to show how to test an embedded firmware using [CppU
 
 ![embeddedDevice](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
 
-Usually, an embedded system communicates with many inner devices, such as accelerometers, GPS modules or CAN controllers. But now, with the IoT trend, they may also communicate with remote servers and nearby devices, like smartphones, TVs, smartwatches or even your fridge and microwave! Thus, testing software for embedded systems can sometimes be very painful.
+Usually, an embedded system communicates with many inner devices, such as accelerometers, GPS modules, CAN controllers, RFID readers or Touchscreen+LCD modules. Now, with the IoT trend, they may also communicate with remote servers and/or nearby devices like smartphones, TVs, smartwatches or even your fridge and microwave! Thus, testing software for embedded systems can sometimes be very painful.
 
 The goal is to show how to remove these hardware/devices dependencies and test/run code on a host machine using [CppUTest](https://github.com/cpputest/cpputest) framework.
 
@@ -42,6 +42,7 @@ The goal is to show how to remove these hardware/devices dependencies and test/r
     ```bash
     make
     ```
+    This command will build the main firmware located at **src** folder and create ***src/run_this_firmware*** binary.
 
 2.  Run test cases
     ```bash
