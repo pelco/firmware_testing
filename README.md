@@ -8,7 +8,7 @@
 
 Here is a project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test an embedded firmware.
 
-![embeddedDevice](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
+![](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
 
 Usually, an embedded system communicates with many inner devices, such as accelerometers, GPS modules, CAN controllers, RFID readers or Touchscreen+LCD modules. Now, with the IoT trend, they may also communicate with remote servers and/or nearby devices like smartphones, TVs, smartwatches or even your fridge and microwave! Thus, testing software for embedded systems can sometimes be very painful.
 
@@ -76,7 +76,7 @@ $ tree -d
     ```
     A **coverage** folder should have been created an you can access the result by open **coverageTest.html/index.html** with your browser:
 
-    ![LCOVReport](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
+    ![](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
 
 *Working on it....*
 
