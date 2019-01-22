@@ -103,7 +103,7 @@ Output:
 
 ### Simple Unit Test
 
-In **src/math.c** file has simple calculator that implements addition and subtraction operations. 
+In **src/math.c** file has a simple calculator that implements addition and subtraction operations. 
 The test cases are implemented in **tests/t_math.cpp**.
 
 math.c:
@@ -178,7 +178,7 @@ void wait_for_ISR_func(void)
 ###  Testing Hardware Dependencies
 
 In **src/main.c** is implemented the main firmware code.
-This code has some hardware dependencies (i2c, **src/hw/i2c.c**) that are usually painful get it running in a host machine.
+This code has some hardware dependencies (i2c, **src/hw/i2c.c**) that are usually painful to get it running in a host machine.
 These hardware dependencies are mocked in **tests/mocks/i2c_mock.cpp** and the main test cases are implemented in **tests/t_main.cpp**.
 
 main.c:
