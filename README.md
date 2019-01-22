@@ -7,7 +7,7 @@
 
 ## Description
 
-Here is a project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test an embedded firmware.
+Open source project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test firmware for embedded systems.
 
 ![](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
 
@@ -37,9 +37,14 @@ The goal is to show how to remove these hardware/devices dependencies and test/r
     ```bash
     cd code
     ```
+
 ## Folder Structure
 ```bash
 tree -d
+```
+
+Output:
+```bash
 .
 ├── src             -> Firmware source code
 │   ├── hw          -> Hardware/Target specific code
@@ -51,27 +56,40 @@ tree -d
 ## Build Targets
 
 1.  Build "firmware" (Source)
+
     ```bash
     make
     ```
+
     This command will build the main firmware located at **src/main.c** and create **src/run_this_firmware** binary.
-     ```bash
+    ```bash
     ./src/run_this_firmware
+    ```
+
+    Output:
+    ```bash
     Hello World from Firmware
     I2C write value 0x1 to reg 0xa at slave 0x30
-    I2C read from slave 0x30 at reg 0xb
+    I2C read reg 0x30 from slave 0xb
     I2C write value 0x1 to reg 0xa at slave 0x30
     ```
 
 2.  Run test cases
+
     The next command will build [CppUTest](https://github.com/cpputest/cpputest) and run all test cases in **tests/t_*.cpp** files.
     ```bash
     make test
+    ```
+
+    The command will build and run the test binary file located  **tests/test_firmware**.
+    Output:
+    ```bash
     ...
     OK (12 tests, 12 ran, 20 checks, 0 ignored, 0 filtered out, 1 ms)
     ```
 
 3.  Run coverage report
+
     This command will run all test cases and generate a firmware coverage report. 
     ```bash
     make coverage
@@ -81,10 +99,106 @@ tree -d
 
     ![](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
 
-Working on it....
+## Features Covered:
 
-Features covered:
+### Simple Unit Test
 
-1.  Simple Unit Test
-2.  Testing ISRs
-3.  Testing Hardware Dependencies
+In **src/math.c** file has simple calculator that implements addition and subtraction operations. 
+The test cases are implemented in **tests/t_math.cpp**.
+
+math.c:
+
+```C
+uint8_t calculator(char op, uint8_t val1, uint8_t val2)
+{
+    uint8_t result = 0;
+
+    switch(op) {
+        case '+':
+            result = (uint8_t)(val1 + val2);
+            break;
+        case '-':
+            result = (uint8_t)(val1 - val2);
+            break;
+        default:
+            break;
+    }
+
+    return result;
+}
+```
+
+###  Memory Leaks
+
+In **src/other.c** file is implemented a function that is leaking memory. 
+By default memory leak detection is turned off. To enable memory leak detection change `CPPUTEST_USE_MEM_LEAK_DETECTION=N` to `CPPUTEST_USE_MEM_LEAK_DETECTION=Y` in the **MakefileCppUTest.mk** file. 
+Then build and run test cases again.
+The test cases are implemented in **tests/t_other.cpp**.
+
+other.c:
+
+```C
+uint8_t mem_leak_function(void)
+{
+    uint8_t *ptr;
+    ptr = malloc (1);
+
+    (void)(ptr);
+
+    // free(ptr);
+    return 1;
+}
+```
+
+###  Testing ISRs
+
+In **src/other.c** is also implemented a function (wait_for_ISR_func()) that depends on a ISR() (interrupt service routines) to happen in order for the firmware function continue it's execution.
+The test cases are implemented in **tests/t_other.cpp**.
+
+other.c:
+
+```C
+volatile uint8_t brick_code = 1;
+
+void ISR(void)
+{
+    brick_code = 0;
+}
+
+void wait_for_ISR_func(void)
+{
+    while(brick_code){
+        //printf(" Stuck forever here\n");
+    };
+    printf(" -> Out of the loop");
+}
+
+```
+
+###  Testing Hardware Dependencies
+
+In **src/main.c** is implemented the main firmware code.
+This code has some hardware dependencies (i2c, **src/hw/i2c.c**) that are usually painful get it running in a host machine.
+These hardware dependencies are mocked in **tests/mocks/i2c_mock.cpp** and the main test cases are implemented in **tests/t_main.cpp**.
+
+main.c:
+
+```C
+uint32_t main(void)
+{
+    printf(" Hello World from Firmware\n");
+
+    uint8_t reg = 0;
+
+    init_device(); /* Configure i2c device */
+
+    reg = i2c_read(I2C_SLAVE_ADDRESS, I2C_REG2);
+    if (reg == DEVICE_READY) {
+        i2c_read(I2C_SLAVE_ADDRESS, I2C_REG3);
+    } else {
+        init_device(); /* Reconfigure device if it's not ready */
+    }
+
+    return 0;
+}
+```

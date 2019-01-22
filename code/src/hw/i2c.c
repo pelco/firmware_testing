@@ -14,7 +14,7 @@
  */
 uint8_t i2c_read(uint8_t address, uint8_t reg_addr)
 {
-    printf("I2C read from slave 0x%x at reg 0x%x\n", address, reg_addr);
+    printf("I2C read reg 0x%x from slave 0x%x\n", address, reg_addr);
     /* Code added here will not run in the test cases */
     return 0;
 }

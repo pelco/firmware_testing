@@ -17,8 +17,9 @@ uint8_t mem_leak_function(void)
     (void)(ptr);
 
     /**
-     * Change memory leak definition CPPUTEST_USE_MEM_LEAK_DETECTION=N to
-     * CPPUTEST_USE_MEM_LEAK_DETECTION=Y in the MakefileCppUTest.mk file.
+     * Change CPPUTEST_USE_MEM_LEAK_DETECTION=N to
+     * CPPUTEST_USE_MEM_LEAK_DETECTION=Y in the MakefileCppUTest.mk file
+     * to enable memroy leak detection.
      * Then Run: make test
      */
     // free(ptr);
@@ -28,7 +29,7 @@ uint8_t mem_leak_function(void)
 /**
  * This example shows a funcion (wait_for_ISR_func) that depends on a
  * ISR() (interrupt service routines) to happen in order for the firmware
- * funcion continue it's execution.
+ * function continue it's execution.
  * Check tests/t_other.c.
  */
 volatile uint8_t brick_code = 1;
