@@ -99,7 +99,7 @@ Output:
 
     ![](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
 
-## Features Covered:
+## Features Covered
 
 ### Simple Unit Test
 
@@ -128,7 +128,7 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 }
 ```
 
-###  Memory Leaks
+### Memory Leaks
 
 In **src/other.c** file is implemented a function that is leaking memory. 
 By default memory leak detection is turned off. To enable memory leak detection change `CPPUTEST_USE_MEM_LEAK_DETECTION=N` to `CPPUTEST_USE_MEM_LEAK_DETECTION=Y` in the **MakefileCppUTest.mk** file. 
@@ -150,7 +150,7 @@ uint8_t mem_leak_function(void)
 }
 ```
 
-###  Testing ISRs
+### Testing ISRs
 
 In **src/other.c** is also implemented a function (wait_for_ISR_func()) that depends on a ISR() (interrupt service routines) to happen in order for the firmware function continue it's execution.
 The test cases are implemented in **tests/t_other.cpp**.
@@ -175,7 +175,7 @@ void wait_for_ISR_func(void)
 
 ```
 
-###  Testing Hardware Dependencies
+### Testing Hardware Dependencies
 
 In **src/main.c** is implemented the main firmware code.
 This code has some hardware dependencies (i2c, **src/hw/i2c.c**) that are usually painful to get it running in a host machine.
