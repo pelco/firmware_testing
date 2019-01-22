@@ -113,7 +113,7 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 {
     uint8_t result = 0;
 
-    switch(op) {
+    switch (op) {
         case '+':
             result = (uint8_t)(val1 + val2);
             break;
@@ -141,7 +141,7 @@ other.c:
 uint8_t mem_leak_function(void)
 {
     uint8_t *ptr;
-    ptr = malloc (1);
+    ptr = malloc(1);
 
     (void)(ptr);
 

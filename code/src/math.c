@@ -12,7 +12,7 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 {
     uint8_t result = 0;
 
-    switch(op) {
+    switch (op) {
         case '+':
             result = (uint8_t)(val1 + val2);
             break;

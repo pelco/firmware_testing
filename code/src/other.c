@@ -12,7 +12,7 @@
 uint8_t mem_leak_function(void)
 {
     uint8_t *ptr;
-    ptr = malloc (1);
+    ptr = malloc(1);
 
     (void)(ptr);
 
@@ -41,7 +41,7 @@ void ISR(void)
 
 void wait_for_ISR_func(void)
 {
-    while(brick_code){
+    while (brick_code) {
         //printf(" Stuck forever here\n");
     };
     printf(" -> Out of the loop");
