@@ -134,8 +134,8 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 ```
 
 The test cases are implemented in **tests/t_math.cpp** and cover:
--  All switch cases;
--  Return overflow;
+  -  All switch cases;
+  -  Return overflow;
 
 ### Memory Leaks
 
