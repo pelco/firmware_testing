@@ -10,13 +10,9 @@
 Open source project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test firmware for embedded systems. The project covers some firmware examples that are usually hard to test, including:
 
 1.  Simple API unit test
-
 2.  Memory Leaks test
-
 3.  API unit test with ISR (interrupt service routines) dependencies
-
 4.  API unit test with hardware dependencies
-
 5.  Test/Run main firmware
 
 ![](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
@@ -139,8 +135,8 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 ```
 
 The test cases cover:
-- All switch cases;
-- Return overflow;
+-  All switch cases;
+-  Return overflow;
 
 ### Memory Leaks
 
