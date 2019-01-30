@@ -186,7 +186,7 @@ void wait_for_ISR_func(void)
 
 ```
 
-The test cases are implemented in **tests/t_other.cpp**.
+The test cases are implemented in **tests/t_other.cpp** and show how to handle these cases.
 
 ### Testing Hardware Dependencies
 
@@ -214,5 +214,7 @@ uint32_t main(void)
 }
 ```
 
-This code has some hardware dependencies (i2c) that are usually painful to make the firmware running in a host machine.
+This main firmware code has some hardware dependencies (i2c) that are usually painful to get it running on host machine.
+The test cases show how to get this main function running and how to handle this dependencies.
+
 These hardware dependencies are mocked in **tests/mocks/i2c_mock.cpp** and the main test cases are implemented in **tests/t_main.cpp**.
