@@ -7,7 +7,17 @@
 
 ## Description
 
-Open source project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test firmware for embedded systems.
+Open source project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test firmware for embedded systems. The project covers some firmware examples that usually are hard to test, including:
+
+1.  Simple API unit test
+
+2.  Memory Leaks test
+
+3.  API unit test with ISR (interrupt service routines) dependencies
+
+4.  API unit test with hardware dependencies
+
+5.  Test/Run main firmware
 
 ![](https://github.com/pelco/firmware_testing/blob/master/img/EmbDevice.png)
 
@@ -61,7 +71,7 @@ Output:
     make
     ```
 
-    This command will build the main firmware located at **src/main.c** and create **src/run_this_firmware** binary.
+    The command will build the main firmware located at **src/main.c** and create **src/run_this_firmware** binary.
     ```bash
     ./src/run_this_firmware
     ```
@@ -81,7 +91,7 @@ Output:
     make test
     ```
 
-    The command will build and run the test binary file located  **tests/test_firmware**.
+    The command will also build and run the test binary file located  **tests/test_firmware**.
     Output:
     ```bash
     ...
@@ -95,7 +105,7 @@ Output:
     make coverage
     ```
 
-    A **coverage** folder should have been created an you can access the result by open **coverageTest.html/index.html** with your browser:
+    A **coverage** folder should have been created and you can access the result by open **coverageTest.html/index.html** with your browser:
 
     ![](https://github.com/pelco/firmware_testing/blob/master/img/lcovRep.png)
 
@@ -103,7 +113,7 @@ Output:
 
 ### Simple Unit Test
 
-In **src/math.c** file has a simple calculator that implements addition and subtraction operations. 
+In **src/math.c** file has a simple calculator API that implements addition and subtraction operations. 
 The test cases are implemented in **tests/t_math.cpp**.
 
 math.c:
@@ -128,12 +138,13 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 }
 ```
 
+The test cases cover:
+- All switch cases;
+- Return overflow;
+
 ### Memory Leaks
 
 In **src/other.c** file is implemented a function that is leaking memory. 
-By default memory leak detection is turned off. To enable memory leak detection change `CPPUTEST_USE_MEM_LEAK_DETECTION=N` to `CPPUTEST_USE_MEM_LEAK_DETECTION=Y` in the **MakefileCppUTest.mk** file. 
-Then build and run test cases again.
-The test cases are implemented in **tests/t_other.cpp**.
 
 other.c:
 
@@ -150,10 +161,14 @@ uint8_t mem_leak_function(void)
 }
 ```
 
+By default memory leak detection is turned off. To enable memory leak detection change `CPPUTEST_USE_MEM_LEAK_DETECTION=N` to `CPPUTEST_USE_MEM_LEAK_DETECTION=Y` in **MakefileCppUTest.mk** file. 
+Then build and run test cases again.
+
+The test cases are implemented in **tests/t_other.cpp**.
+
 ### Testing ISRs
 
 In **src/other.c** is also implemented a function (wait_for_ISR_func()) that depends on a ISR() (interrupt service routines) to happen in order for the firmware function continue it's execution.
-The test cases are implemented in **tests/t_other.cpp**.
 
 other.c:
 
@@ -175,11 +190,11 @@ void wait_for_ISR_func(void)
 
 ```
 
+The test cases are implemented in **tests/t_other.cpp**.
+
 ### Testing Hardware Dependencies
 
 In **src/main.c** is implemented the main firmware code.
-This code has some hardware dependencies (i2c, **src/hw/i2c.c**) that are usually painful to get it running in a host machine.
-These hardware dependencies are mocked in **tests/mocks/i2c_mock.cpp** and the main test cases are implemented in **tests/t_main.cpp**.
 
 main.c:
 
@@ -202,3 +217,6 @@ uint32_t main(void)
     return 0;
 }
 ```
+
+This code has some hardware dependencies (i2c) that are usually painful to make the firmware running in a host machine.
+These hardware dependencies are mocked in **tests/mocks/i2c_mock.cpp** and the main test cases are implemented in **tests/t_main.cpp**.
