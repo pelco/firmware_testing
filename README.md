@@ -7,7 +7,7 @@
 
 ## Description
 
-Open source project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test firmware for embedded systems. The project covers some firmware examples that usually are hard to test, including:
+Open source project that uses [CppUTest](https://github.com/cpputest/cpputest) framework to test firmware for embedded systems. The project covers some firmware examples that are usually hard to test, including:
 
 1.  Simple API unit test
 
