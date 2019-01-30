@@ -110,7 +110,6 @@ Output:
 ### Simple Unit Test
 
 In **src/math.c** file has a simple calculator API that implements addition and subtraction operations. 
-The test cases are implemented in **tests/t_math.cpp**.
 
 math.c:
 
@@ -134,7 +133,7 @@ uint8_t calculator(char op, uint8_t val1, uint8_t val2)
 }
 ```
 
-The test cases cover:
+The test cases are implemented in **tests/t_math.cpp** and cover:
 -  All switch cases;
 -  Return overflow;
 
@@ -214,7 +213,7 @@ uint32_t main(void)
 }
 ```
 
-This main firmware code has some hardware dependencies (i2c) that are usually painful to get it running on host machine.
+This main firmware code has some hardware dependencies (i2c) that are usually painful to get it running on a host machine.
 The test cases show how to get this main function running and how to handle this dependencies.
 
 These hardware dependencies are mocked in **tests/mocks/i2c_mock.cpp** and the main test cases are implemented in **tests/t_main.cpp**.
